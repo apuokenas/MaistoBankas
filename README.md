@@ -1,6 +1,8 @@
 Maisto bankas
 =============
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/apuokenas/MaistoBankas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 `PI;N` (angl. `TL;DR`)
 
 Maisto produktų apskaitos programėlė "Maisto bankas": subalansuota "Maisto banko" savanoriams, bet tinka ir "Maltiečių ordino" virtuvių šefams bei kebabinių gaspadinėms!
