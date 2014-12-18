@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Maisto bankas by apuokenas</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/apuokenas/MaistoBankas">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Maisto bankas</h1>
+            <h2>Maisto produktų apskaitos programėlė</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/apuokenas/MaistoBankas/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/apuokenas/MaistoBankas/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="maisto-bankas" class="anchor" href="#maisto-bankas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maisto bankas</h1>
+
+<p><code>PI;N</code> (angl. <code>TL;DR</code>)</p>
+
+<p>Maisto produktų apskaitos programėlė "Maisto bankas": subalansuota "Maisto banko" savanoriams, bet tinka ir "Maltiečių ordino" virtuvių šefams bei kebabinių gaspadinėms!</p>
+
+<p>Programėlė "Maisto bankas" yra licencijuota pagal <a href="http://choosealicense.com/licenses/apache-2.0">"Apache License"</a> sąlygas, vadinasi, programinę įrangą galima laisvai:</p>
+
+<ul>
+<li>Naudoti bet kokiu tikslu.</li>
+<li>Modifikuoti.</li>
+<li>Platinti (tiek originalią, tiek modifikuotą versijas).
+Vienintelė ribojanti sąlyga - privaloma išsaugoti autorines teises ir atsišaukimą (jei toks yra) bei nereikalauti jokių autorinių honorarų.</li>
+</ul>
+
+<h3>
+<a id="projekto-techniniai-niuansai" class="anchor" href="#projekto-techniniai-niuansai" aria-hidden="true"><span class="octicon octicon-link"></span></a>Projekto techniniai niuansai</h3>
+
+<p>Šiame dokumente galite susipažinti, kaip vyksta programėlės tobulinimas, apauginant ją nauju funkcionalumu ir koreguojant ar atsisakant senesnio, nebeatitinkančio vartotojų poreikių (arba bankrutavus kokiam nors API teikėjui).</p>
+
+<p>Idėjų semtasi iš kyborgų korifėjaus Viliaus Kraujučio 2014 m. vasarį "Vinted" patalpose vestų <a href="https://plus.google.com/u/0/events/c24nklguv5saguo9sj29mpbuo7g">"Android" mokymų</a> mokymų, kurių metu buvo šnekučiuojamasi programuotojams skirtoje tarnyboje <a href="https://gitter.im">"Gitter"</a>.</p>
+
+<h3>
+<a id="programavimo-aplinkos-įdiegimas" class="anchor" href="#programavimo-aplinkos-%C4%AFdiegimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Programavimo aplinkos įdiegimas</h3>
+
+<p>Jei norite prisidėti, tobulinant aplikaciją, turite lokaliai įsidiegti:</p>
+
+<ul>
+<li>Naujausią oficialią integruotą "Android" programavimo aplinką <a href="http://developer.android.com/sdk/index.html">"Android Studio"</a>.</li>
+<li>Projekto <em>buildinimo</em> automatizavimo įrankį <a href="http://services.gradle.org/distributions/gradle-2.2.1-all.zip">"Gradle" (v2.2.1)</a>.</li>
+<li>Programavimui "Java" kalba skirtą priemonę <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">"Java SE Development Kit 8"</a>.</li>
+</ul>
+
+<h3>
+<a id="android-programėlės-generavimas" class="anchor" href="#android-program%C4%97l%C4%97s-generavimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>"Android" programėlės generavimas</h3>
+
+<p>Pasinaudojus "Android Studio" vedliu, iš "GitHub" kodo versijavimo sistemos galima parsiųsti programėlės struktūrą:</p>
+
+<p>VCS --&gt; Checkout from Version Control... --&gt; GitHub.</p>
+
+<p>Atsidariusiame lange į "Vcs Version URL" laukelį įveskite:
+<code>https://github.com/apuokenas/MaistoBankas.git</code>,
+o kaip "Parent Directory" nurodykite vietinį aplanką, kuriame talpinsite projekto failus.</p>
+
+<p>P. S. Savo mašinoje reikia turėti git.exe bylą, kurios adresas įvedamas per "Settings" meniu:</p>
+
+<p>File --&gt; Settings --&gt; Version Control --&gt; Git.</p>
+
+<p>Lauke "Path to Git executable" nurodomas kelias iki minėto failo. Pvz., jei esate "Windows" vartotojas:</p>
+
+<p>C:\Users[Vartotojas]\AppData\Local\GitHub\PortableGit_[40_raidžių_ir_skaičių]\bin\git.exe.</p>
+
+<p>Kodo modifikacijas ir susijusius komentarus galite peržiūrėti "GitHub" <a href="https://github.com/apuokenas/MaistoBankas/commits">pakeitimų įrašuose</a>.</p>
+
+<h3>
+<a id="layout-komponentai-pagrindiniame-fragmente" class="anchor" href="#layout-komponentai-pagrindiniame-fragmente" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<code>Layout</code> komponentai pagrindiniame <code>fragment</code>'e</h3>
+
+<ul>
+<li>Mygtukas "Nustatymai", atidarantis produktų rinkimo (parduotuvės) arba valgių gaminimo vietos informacijos suvedimo <code>fragment</code>'ą.</li>
+<li>Mygtukas "Skenuoti".</li>
+<li>Sąrašas (<code>ListView</code>) nuskenuotų prekių išvedimui į ekraną.</li>
+</ul>
+
+<h2>
+<a id="nustatymų-fragmento-pridėjimas" class="anchor" href="#nustatym%C5%B3-fragmento-prid%C4%97jimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>"Nustatymų" <code>fragment</code>'o pridėjimas</h2>
+
+<p>Tai paprasta forma, kurioje randami keli įvesties laukeliai:</p>
+
+<ul>
+<li>Miestas</li>
+<li>Adresas</li>
+<li>Parduotuvės pavadinimas</li>
+<li>Savanorio vardas</li>
+</ul>
+
+<p>Ir, žinoma, <em>mygelis</em> "Išsaugoti".</p>
+
+<h2>
+<a id="brūkšninio-kodo-skenerio-implementavimas" class="anchor" href="#br%C5%ABk%C5%A1ninio-kodo-skenerio-implementavimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Brūkšninio kodo skenerio implementavimas</h2>
+
+<p>Brūkšninius kodus skenuoja kita į "Knygų Kalėdas" integruota programėlė - <a href="https://github.com/zxing/zxing">"ZXing"</a> (dar žinoma kaip "Zebra Crossing").
+Skenavimas vykdomas, naudojantis <code>Intent</code>'u.
+Instrukcijas, kaip visa tai integruoti, galite rasti <a href="https://github.com/zxing/zxing/wiki/Scanning-Via-Intent">čia</a>.</p>
+
+<h2>
+<a id="activity-gyvavimo-ciklo-registravimas" class="anchor" href="#activity-gyvavimo-ciklo-registravimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<code>Activity</code> gyvavimo ciklo registravimas</h2>
+
+<p>Siekdamas geriau suprasti <code>Activity</code> ir <code>Fragment</code> gyvavimo ciklus (angl. <em>lifecycle</em>), peržiūrėjau atitinkamą <a href="http://developer.android.com/training/basics/activity-lifecycle/starting.html">diagramą</a>, kuria remiantis, įdėjau <code>Log.d()</code> komandas į <code>BaseActivity</code> šiuose metoduose:</p>
+
+<ul>
+<li>OnCreate()</li>
+<li>OnStart()</li>
+<li>OnResume()</li>
+<li>OnPause()</li>
+<li>OnStop()</li>
+<li>OnDestroy()</li>
+</ul>
+
+<h2>
+<a id="fragmentų-gyvavimo-ciklo-registravimas" class="anchor" href="#fragment%C5%B3-gyvavimo-ciklo-registravimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<code>Fragment</code>'ų gyvavimo ciklo registravimas</h2>
+
+<p>nalogiškai <code>Activity</code> gyvavimo ciklo <em>loginimo</em> atvejui, pasidariau <code>Fragment</code> gyvavimo ciklo registravimą.
+Apie <code>Fragment</code> gyvavimo ciklus galima pasiskaityti <a href="http://developer.android.com/guide/components/fragments.html">oficialioje "Google" dokumentacijoje</a></p>
+
+<p>Taigi reikia susikurti <code>BaseFragment</code> pagrindinę klasę, kurioje patalpinti <em>loginimo</em> metodai:</p>
+
+<ul>
+<li>onAttach()</li>
+<li>onCreate()</li>
+<li>onCreateView()</li>
+<li>onActivityCreated()</li>
+<li>onStart()</li>
+<li>onResume()</li>
+<li>onPause()</li>
+<li>onStop()</li>
+<li>onDestroyView()</li>
+<li>onDestroy()</li>
+<li>onDetach()</li>
+</ul>
+
+<h2>
+<a id="duomenų-bazės-skirtos-saugoti-brūkšninius-kodus-integravimas" class="anchor" href="#duomen%C5%B3-baz%C4%97s-skirtos-saugoti-br%C5%ABk%C5%A1ninius-kodus-integravimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Duomenų bazės, skirtos saugoti brūkšninius kodus, integravimas</h2>
+
+<p>Funkcionalumas įgyvendintas, pasitelkus <a href="http://ormlite.com/sqlite_java_android_orm.shtml">"ORM Lite"</a>.</p>
+
+<h3>
+<a id="duomenų-modelio-kūrimas" class="anchor" href="#duomen%C5%B3-modelio-k%C5%ABrimas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Duomenų modelio kūrimas</h3>
+
+<h2>
+<a id="saugotina-informacija" class="anchor" href="#saugotina-informacija" aria-hidden="true"><span class="octicon octicon-link"></span></a>Saugotina informacija</h2>
+
+<p>Prekė <code>Item</code>:</p>
+
+<ul>
+<li>
+<code>barcode</code> - prekės brūkšninis kodas</li>
+<li>
+<code>name</code> - prekės pavadinimas</li>
+<li>
+<code>price</code> - prekės kaina</li>
+<li>
+<code>weight</code> - prekės svoris (bnors fizikiškai tiksliau būtų vadint mase)</li>
+<li>
+<code>image_url</code> - prekės nuotrauka</li>
+</ul>
+
+<p>Nuskenuota prekė <code>ScannedItem</code>:</p>
+
+<ul>
+<li>
+<code>id</code> - unikalus konkretų skenavimą identifikuojantis numeris</li>
+<li>
+<code>barcode</code> - prekės brūkšninis kodas</li>
+<li>
+<code>time</code> - skenavimo laikas</li>
+<li>
+<code>place</code> - skenavimo vieta</li>
+<li>
+<code>volunteer</code> - savanoris (taip pat gali būti virtuvės šefas ar namų šeimininkė, priklausomai nuo aplinkybių, kuriomis naudojama aplikacija)</li>
+</ul>
+
+<h3>
+<a id="naujai-skenuojamų-produktų-išsaugojimas-duomenų-bazėje" class="anchor" href="#naujai-skenuojam%C5%B3-produkt%C5%B3-i%C5%A1saugojimas-duomen%C5%B3-baz%C4%97je" aria-hidden="true"><span class="octicon octicon-link"></span></a>Naujai skenuojamų produktų išsaugojimas duomenų bazėje</h3>
+
+<p>Sukuriamas ir duomenų bazėn patalpinamas naujas <code>ScannedItem</code> objektas.</p>
+
+<p>Apie tai, kaip susikurti "ORM Lite" duomenų bazės <code>Helper</code> klasę, galima sužinoti iš šių šaltinių:</p>
+
+<ul>
+<li><a href="http://ormlite.com/javadoc/ormlite-core/doc-files/ormlite_4.html#Use-With-Android">ORM naudojimas kartu su "Android" operacine sistema</a></li>
+<li><a href="http://ormlite.com/android/examples">ORM taikymo "Android'e" pavyzdžiai</a></li>
+<li><a href="https://github.com/j256/ormlite-examples/blob/master/android/HelloAndroid/src/com/example/helloandroid/DatabaseHelper.java">Konkretus taikomasis pavyzdys "GitHub'e"</a></li>
+</ul>
+
+<p>Pasinaudojant <code>Helper</code> klase, įrašas išsaugomas duomenų bazėje.</p>
+
+<h3>
+<a id="irašų-išsaugotų-duomenų-bazėje-rodymas" class="anchor" href="#ira%C5%A1%C5%B3-i%C5%A1saugot%C5%B3-duomen%C5%B3-baz%C4%97je-rodymas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Irašų, išsaugotų duomenų bazėje, rodymas</h3>
+
+<h2>
+<a id="atvaizduojamas-nuskenuotų-prekių-sąrašas-vis-atnaujinamas-naujais-įrašais-iš-duomenų-bazės" class="anchor" href="#atvaizduojamas-nuskenuot%C5%B3-preki%C5%B3-s%C4%85ra%C5%A1as-vis-atnaujinamas-naujais-%C4%AFra%C5%A1ais-i%C5%A1-duomen%C5%B3-baz%C4%97s" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atvaizduojamas nuskenuotų prekių sąrašas vis atnaujinamas naujais įrašais iš duomenų bazės</h2>
+
+<ul>
+<li>
+<code>MainFragment</code>'e <code>onResume</code> metode iškviečiama <code>dbHelper.getScannedItemDao().queryForAll()</code> funkcija.</li>
+<li>Sąrašas bus atvaizduotas, sukūrus naują adapterį.</li>
+<li>Sąrašo eilutės vaizduojamos sukurtame <code>layout</code>'e (kol kas - tik su <code>TextView</code>, skirtu ekranan išvesti brūkšninį kodą).</li>
+</ul>
+
+<h2>
+<a id="nuskenuotos-prekės-informacijos-rodymas" class="anchor" href="#nuskenuotos-prek%C4%97s-informacijos-rodymas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nuskenuotos prekės informacijos rodymas</h2>
+
+<ul>
+<li>Duomenys apie maisto produktą gaunami ir atitinkamas duomenų modelis sukuriamas, naudojant REST klientą <a href="http://square.github.io/retrofit">"Retrofit"</a>.</li>
+<li>Prekės informacijos talpinimas duomenų bazėje.</li>
+<li>Prekės informacijos pavaizdavimas sąraše.</li>
+<li>Prekės paveiksliukas rodomas, pasitelkus paveikslėlių siuntimo ir kešavimo (talpinimo į podėlį) biblioteką <a href="http://square.github.io/picasso">"Picasso"</a>.</li>
+<li>Rodoma papildoma prekės informacija.</li>
+<li>
+<code>Nustatymai</code> mygtukas įtrauktas į meniu.</li>
+<li>
+<code>Skenuoti</code> mygtukas centruojamas apačioje.</li>
+<li>Naujausi nuskenuoti įrašai rodomi viršuje.</li>
+<li>Kai kur naudojama animacija.</li>
+</ul>
+
+<p>Ne pagal "Material Design" principus sukurtos vartotojo sąsajos pavyzdys:
+<img src="https://cloud.githubusercontent.com/assets/1859636/2558559/b9318ae4-b74f-11e3-8705-30dfbd4ab074.png" alt="2014-03-29 14 37 12"></p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/apuokenas">apuokenas</a> can be found on <a href="https://github.com/apuokenas/MaistoBankas">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-46110910-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
