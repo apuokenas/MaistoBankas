@@ -18,9 +18,9 @@ android {
         // is used to configure the manifest 'packageName' entry:
         applicationId "eu.tumenas.maistobankas"
         // The earliest version of the Android SDK that the app supports:
-        minSdkVersion 9         // Android 2.3 is the lowest version supporting Google Play services SDK.
+        minSdkVersion 10        // Android 2.3 (API 9) and 2.3.3 (API 10) are the lowest versions supporting Google Play services SDK.
                                 // With the minimum SDK version of 8, the app will run on 99,3% of the devices,
-                                // and the cumulative distribution of API 10 is 87,9% (as of December, 2014).
+                                // while the cumulative distribution of API 10 is 87,9% (as of December, 2014).
         // The highest version of Android with which the app has benn tested:
         targetSdkVersion 21
         versionCode 1
