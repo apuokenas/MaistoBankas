@@ -8,7 +8,7 @@
     <string name="button_settings">Nustatymai</string>
     <string name="button_send">Skenuoti</string>
     <string name="button_save">Išsaugoti</string>
-    <string name="barcode_scan_message">Nuskenuokite prekės brūkšninį kodą</string>
+    <string name="barcode_scan_message">Reikia įdiegti papildomą programėlę, skenuojančią prekių brūkšninius kodus</string>
     <string name="city">Miestas</string>
     <string name="shop_address">Parduotuvės adresas</string>
     <string name="shop_name">Parduotuvės pavadinimas</string>
