@@ -58,7 +58,7 @@ Kodo modifikacijas ir susijusius komentarus galite peržiūrėti "GitHub" [pakei
 Tai paprasta forma, kurioje randami keli įvesties laukeliai:
 
 * Miestas
-* Adresas
+* Parduotuvės adresas
 * Parduotuvės pavadinimas
 * Savanorio vardas
 
@@ -66,7 +66,7 @@ Ir, žinoma, *mygelis* "Išsaugoti".
 
 ## Brūkšninio kodo skenerio implementavimas
 
-Brūkšninius kodus skenuoja kita į "Knygų Kalėdas" integruota programėlė - ["ZXing"](https://github.com/zxing/zxing) (dar žinoma kaip "Zebra Crossing").
+Brūkšninius kodus skenuoja kita į "Maisto banką" integruota programėlė - ["ZXing"](https://github.com/zxing/zxing) (dar žinoma kaip "Zebra Crossing").
 Skenavimas vykdomas, naudojantis `Intent`'u.
 Instrukcijas, kaip visa tai integruoti, galite rasti [čia](https://github.com/zxing/zxing/wiki/Scanning-Via-Intent).
 
@@ -82,7 +82,7 @@ Siekdamas geriau suprasti `Activity` ir `Fragment` gyvavimo ciklus (angl. *lifec
 
 ## `Fragment`'ų gyvavimo ciklo registravimas
 
-nalogiškai `Activity` gyvavimo ciklo *loginimo* atvejui, pasidariau `Fragment` gyvavimo ciklo registravimą.
+Analogiškai `Activity` gyvavimo ciklo *loginimo* atvejui, pasidariau `Fragment` gyvavimo ciklo registravimą.
 Apie `Fragment` gyvavimo ciklus galima pasiskaityti [oficialioje "Google" dokumentacijoje](http://developer.android.com/guide/components/fragments.html)
 
 Taigi reikia susikurti `BaseFragment` pagrindinę klasę, kurioje patalpinti *loginimo* metodai:
@@ -151,7 +151,7 @@ Pasinaudojant `Helper` klase, įrašas išsaugomas duomenų bazėje.
 * `Nustatymai` mygtukas įtrauktas į meniu.
 * `Skenuoti` mygtukas centruojamas apačioje.
 * Naujausi nuskenuoti įrašai rodomi viršuje.
-* Kai kur naudojama animacija.
+* Skenavimo mygtukas yra animuotas.
 
 Ne pagal "Material Design" principus sukurtos vartotojo sąsajos pavyzdys:
 ![2014-03-29 14 37 12](https://cloud.githubusercontent.com/assets/1859636/2558559/b9318ae4-b74f-11e3-8705-30dfbd4ab074.png)
