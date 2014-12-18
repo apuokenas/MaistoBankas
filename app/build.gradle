@@ -1,29 +1,57 @@
-apply plugin: 'android'
+// The project itself needs to declare its own repositories and dependencies
+// in the build file located in the [root]\app\ folder.
 
+// Apply the Android plugin for Gradle to the build:
+apply plugin: 'com.android.application'
+
+// The "android {}" element (section) specifies Android-specific build options:
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    // The "compileSdkVersion" property specifies the compilation target:
+    compileSdkVersion 21        // Android 5.0 (API level 21).
+    // Build Tools is a component of the Android SDK required for building Android application code:
+    buildToolsVersion "21.1.2"  // Latest revision (as of December 2014).
 
+    // The "defaultConfig {}" element configures core settings and
+    // overrides entries in the manifest file (AndroidManifest.xml):
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 19
+        // Starting in Gradle v0.11.0, the "applicationId" property (instead of "packageName")
+        // is used to configure the manifest 'packageName' entry:
+        applicationId "eu.tumenas.valgiounija"
+        // The earliest version of the Android SDK that the app supports:
+        minSdkVersion 8     // API 8: Android 2.2 (Froyo).
+        // The highest version of Android with which the app has benn tested:
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        release {               // The release build type is not signed by default.
+            minifyEnabled false // ProGuard obfuscates the classes during the build process.
+                                // "runProguard" was renamed to "minifyEnabled" since Gradle v0.14.0.
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
+// Gradle based projects support for binary libraries (AARs).
+// One no longer need to copy library sources (such as ActionBarSherlock) into the project:
+// simply declare a dependency and the lib is automatically downloaded and merged into the project.
+// The build system adds all the compile dependencies to the compilation classpath
+// and includes them in the final package.
+// The "dependencies {}" element declares the dependencies for the app module:
 dependencies {
-    compile 'com.android.support:appcompat-v7:+'
-    compile 'com.j256.ormlite:ormlite-android:4.+'
-    compile 'com.squareup.retrofit:retrofit:1.5.0'
-    compile 'com.android.support:support-v4:13.0.+'
-    compile 'com.google.code.gson:gson:2.2.4'
-    compile 'com.google.guava:guava:16.+'
-    compile 'com.squareup.picasso:picasso:2.+'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // Avoid using + (automatically picking the latest available version rather than specific)
+    // in version numbers, as this can lead to unpredictable and unrepeatable builds.
+    compile 'com.android.support:appcompat-v7:21.0.3' // v7 appcompat library adds support for the Action Bar user interface design pattern.
+                                                      // This library includes support for material design user interface implementations.
+    compile 'com.j256.ormlite:ormlite-android:4.48'   // http://ormlite.com/releases
+    compile 'com.squareup.retrofit:retrofit:1.8.0'    // https://github.com/square/retrofit
+    compile "com.android.support:support-v4:21.0.3"   // Android Support Repository (from the SDK Manager)
+                                                      // v4 Support Library includes the largest set of APIs compared to the other libraries,
+                                                      // including support for application components, user interface features, accessibility,
+                                                      // data handling, network connectivity, and programming utilities.
+    compile 'com.google.code.gson:gson:2.3.1'         // http://code.google.com/p/google-gson
+    compile 'com.google.guava:guava:18.0'             // http://code.google.com/p/guava-libraries
+    compile 'com.squareup.picasso:picasso:2.4.0'      // https://github.com/square/picasso
 }
