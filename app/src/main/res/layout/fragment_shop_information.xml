@@ -10,20 +10,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/editTextCity"
         android:text="Vilnius"
-        android:hint="Miestas" />
+        android:hint="@string/city" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextAddress"
         android:layout_gravity="center_horizontal"
-        android:hint="Adresas" />
+        android:hint="@string/shop_address" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextShopName"
-        android:hint="Parduotuvės vardas" />
+        android:hint="@string/shop_name" />
 
     <EditText
         android:layout_width="match_parent"
@@ -31,11 +31,11 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editTextName"
-        android:hint="Savanorio vardas" />
+        android:hint="@string/volunteer" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Išsaugoti"
+        android:text="@string/button_save"
         android:id="@+id/buttonSaveInfo" />
 </LinearLayout>

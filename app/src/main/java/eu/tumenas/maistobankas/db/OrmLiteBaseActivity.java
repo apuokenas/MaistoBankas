@@ -1,4 +1,4 @@
-package lt.andro.maistobankas.db;
+package eu.tumenas.maistobankas.db;
 
 import android.content.Context;
 import android.os.Bundle;

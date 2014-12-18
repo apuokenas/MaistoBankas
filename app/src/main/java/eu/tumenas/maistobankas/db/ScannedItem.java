@@ -1,4 +1,4 @@
-package lt.andro.maistobankas.db;
+package eu.tumenas.maistobankas.db;
 
 import com.google.common.base.Objects;
 import com.j256.ormlite.field.DatabaseField;
@@ -8,6 +8,7 @@ import java.util.Date;
 
 /**
  * @author Vilius Kraujutis viliusk@gmail.com
+ * @author M. Tumėnas mantas@tumenas.eu
  * @since 2014-02-08 14:50
  */
 @DatabaseTable(tableName = "scanned_item")

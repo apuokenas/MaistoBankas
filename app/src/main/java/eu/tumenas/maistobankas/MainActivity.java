@@ -1,4 +1,4 @@
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.Toast;
 import java.sql.SQLException;
 import java.util.Date;
 
-import lt.andro.maistobankas.api.entity.Item;
-import lt.andro.maistobankas.db.ScannedItem;
-import lt.andro.maistobankas.util.ScanUtil;
+import eu.tumenas.maistobankas.api.entity.Item;
+import eu.tumenas.maistobankas.db.ScannedItem;
+import eu.tumenas.maistobankas.util.ScanUtil;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
             scannedItem.setBarcode(barcode);
             scannedItem.setPlace("Vilnius");
             scannedItem.setTime(new Date());
-            scannedItem.setVolunteer("Vilius");
+            scannedItem.setVolunteer("M. Tumėnas");
 
             Item item = null;
 

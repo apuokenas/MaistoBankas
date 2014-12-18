@@ -1,4 +1,4 @@
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 /**
  * @author Vilius Kraujutis viliusk@gmail.com
+ * @author M. Tumėnas mantas@tumenas.eu
  * @since 2014-02-08 13:04
  */
 public class BaseFragment extends Fragment {

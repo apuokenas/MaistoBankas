@@ -1,4 +1,4 @@
-package lt.andro.maistobankas.api.entity;
+package eu.tumenas.maistobankas.api.entity;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;

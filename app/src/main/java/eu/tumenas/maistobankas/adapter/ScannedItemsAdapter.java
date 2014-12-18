@@ -1,4 +1,4 @@
-package lt.andro.maistobankas.adapter;
+package eu.tumenas.maistobankas.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,13 +14,14 @@ import com.squareup.picasso.Picasso;
 import java.sql.SQLException;
 import java.util.List;
 
-import lt.andro.maistobankas.R;
-import lt.andro.maistobankas.api.entity.Item;
-import lt.andro.maistobankas.db.DatabaseHelper;
-import lt.andro.maistobankas.db.ScannedItem;
+import eu.tumenas.maistobankas.R;
+import eu.tumenas.maistobankas.api.entity.Item;
+import eu.tumenas.maistobankas.db.DatabaseHelper;
+import eu.tumenas.maistobankas.db.ScannedItem;
 
 /**
  * @author Vilius Kraujutis viliusk@gmail.com
+ * @author M. Tumėnas mantas@tumenas.eu
  * @since 2014-02-08 16:02
  */
 public class ScannedItemsAdapter extends BaseAdapter {
@@ -41,7 +42,7 @@ public class ScannedItemsAdapter extends BaseAdapter {
 
     @Override
     public ScannedItem getItem(int position) {
-        final int count = getCount() - 1;// reverse order of the list items
+        final int count = getCount() - 1; // Reverse order of the list items.
         return scannedItems.get(count - position);
     }
 

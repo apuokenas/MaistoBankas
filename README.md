@@ -1,144 +1,155 @@
-MaistoBankas
-============
+Maisto bankas
+=============
 
-MaistoBankas - skaitliukas maisto banko surinktų produktų statistikos rinkimui
+`PI;N` (angl. `TL;DR`)
 
-## Mokymų turinys / Užduotys
+Maisto produktų apskaitos programėlė "Maisto bankas": subalansuota "Maisto banko" savanoriams, bet tinka ir "Maltiečių ordino" virtuvių šefams bei kebabinių gaspadinėms!
 
-Sąrašiukas, kaip programėlė buvo tobulinama
+Programėlė "Maisto bankas" yra licencijuota pagal ["Apache License"](http://choosealicense.com/licenses/apache-2.0) sąlygas, vadinasi, programinę įrangą galima laisvai:
+* Naudoti bet kokiu tikslu.
+* Modifikuoti.
+* Platinti (tiek originalią, tiek modifikuotą versijas).
+Vienintelė ribojanti sąlyga - privaloma išsaugoti autorines teises ir atsišaukimą (jei toks yra) bei nereikalauti jokių autorinių honorarų.
+
+### Projekto techniniai niuansai
+
+Šiame dokumente galite susipažinti, kaip vyksta programėlės tobulinimas, apauginant ją nauju funkcionalumu ir koreguojant ar atsisakant senesnio, nebeatitinkančio vartotojų poreikių (arba bankrutavus kokiam nors API teikėjui).
+
+Idėjų semtasi iš kyborgų korifėjaus Viliaus Kraujučio 2014 m. vasarį "Vinted" patalpose vestų ["Android" mokymų](https://plus.google.com/u/0/events/c24nklguv5saguo9sj29mpbuo7g) mokymų, kurių metu buvo šnekučiuojamasi programuotojams skirtoje tarnyboje ["Gitter"](https://gitter.im).
+
 ### Programavimo aplinkos įdiegimas
 
-Tie kas atėjo pirmą kartą, reikėjo įsidiegti:
+Jei norite prisidėti, tobulinant aplikaciją, turite lokaliai įsidiegti:
 
-* Naujausią [Android Studio](http://developer.android.com/sdk/installing/studio.html)
-* [Gradle versiją 1.11](http://services.gradle.org/distributions/gradle-1.11-all.zip)
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+* Naujausią oficialią integruotą "Android" programavimo aplinką ["Android Studio"](http://developer.android.com/sdk/index.html).
+* Projekto *buildinimo* automatizavimo įrankį ["Gradle" (v2.2.1)](http://services.gradle.org/distributions/gradle-2.2.1-all.zip).
+* Programavimui "Java" kalba skirtą priemonę ["Java SE Development Kit 8"](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-### Susigeneruoti Android programėlę
+### "Android" programėlės generavimas
 
- Pasinaudoti Android Studio vedliu ir susigeneruoti programėlės struktūrą.
+Pasinaudojus "Android Studio" vedliu, iš "GitHub" kodo versijavimo sistemos galima parsiųsti programėlės struktūrą:
 
- Pradėti File->New Project... ir sekti vedlio nurodymais.
+VCS --> Checkout from Version Control... --> GitHub.
 
-Kas buvo pridėta ir komentarus galima pažiūrėti GitHub'o įrašuose:
-[Pakeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/fe1fe22e80ac50ddc991299c85b8f1f7313570f8)
+Atsidariusiame lange į "Vcs Version URL" laukelį įveskite:
+`https://github.com/apuokenas/MaistoBankas.git`,
+o kaip "Parent Directory" nurodykite vietinį aplanką, kuriame talpinsite projekto failus.
 
-### Layout komponentai pagrindiniame fragmente
+P. S. Savo mašinoje reikia turėti git.exe bylą, kurios adresas įvedamas per "Settings" meniu:
 
-Reikės pridėti:
+File --> Settings --> Version Control --> Git.
 
-- Nustatymų mygtuką, atidarantį parduotuvės informacijos suvedimo fragmentą
-- Mygtuką "Skenuoti"
-- Sąrašą nuskenuotų prekių vaizdavimui (ListView)
+Lauke "Path to Git executable" nurodomas kelias iki minėto failo. Pvz., jei esate "Windows" vartotojas:
 
-[Pakeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/baa82d612e2f96e5e734829597f28922f93c2b88)
+C:\Users\[Vartotojas]\AppData\Local\GitHub\PortableGit_[40_raidžių_ir_skaičių]\bin\git.exe.
 
-## Pridėti nustatymų fragmentą
+Kodo modifikacijas ir susijusius komentarus galite peržiūrėti "GitHub" [pakeitimų įrašuose](https://github.com/apuokenas/MaistoBankas/commits).
 
-Paprasta forma, kurioje keletas įvedimo laukelių:
+### `Layout` komponentai pagrindiniame `fragment`'e
+
+* Mygtukas "Nustatymai", atidarantis produktų rinkimo (parduotuvės) arba valgių gaminimo vietos informacijos suvedimo `fragment`'ą.
+* Mygtukas "Skenuoti".
+* Sąrašas (`ListView`) nuskenuotų prekių išvedimui į ekraną.
+
+## "Nustatymų" `fragment`'o pridėjimas
+
+Tai paprasta forma, kurioje randami keli įvesties laukeliai:
 
 * Miestas
 * Adresas
-* Parduotuvės vardas
+* Parduotuvės pavadinimas
 * Savanorio vardas
-* ir mygtukas Išsaugoti
 
-[Pasikeitimai]
-(https://github.com/gdgvilnius/MaistoBankas/commit/686d64d19c0bd3889f45cf3eeec488290153dbff)
+Ir, žinoma, *mygelis* "Išsaugoti".
 
-## Pridėti Barcode skenerį
+## Brūkšninio kodo skenerio implementavimas
 
-Barkodų skenavimui integravome [ZXing](https://github.com/zxing/zxing)
-Skenavimą pasinaudojant Intent'ais.
-Žiūrėti instrukcijas, kaip integruoti [čia](https://github.com/zxing/zxing/wiki/Scanning-Via-Intent)
+Brūkšninius kodus skenuoja kita į "Knygų Kalėdas" integruota programėlė - ["ZXing"](https://github.com/zxing/zxing) (dar žinoma kaip "Zebra Crossing").
+Skenavimas vykdomas, naudojantis `Intent`'u.
+Instrukcijas, kaip visa tai integruoti, galite rasti [čia](https://github.com/zxing/zxing/wiki/Scanning-Via-Intent).
 
-## Pridėti Lifecycle loginimą (2014-02-08)
- Nusprendėm geriau suprasti Activity ir Fragment gyvavimo ciklą (lifecycle).
+## `Activity` gyvavimo ciklo registravimas
 
- Pažiūrėjome lifecycle diagramą [čia](http://developer.android.com/training/basics/activity-lifecycle/starting.html)
- Ir į `BaseActivity` įsidėsime `Log.d()` komandas šiuose metoduose:
- * OnCreate
- * OnStart
- * OnResume
- * OnPause
- * OnStop
- * OnDestroy
+Siekdamas geriau suprasti `Activity` ir `Fragment` gyvavimo ciklus (angl. *lifecycle*), peržiūrėjau atitinkamą [diagramą](http://developer.android.com/training/basics/activity-lifecycle/starting.html), kuria remiantis, įdėjau `Log.d()` komandas į `BaseActivity` šiuose metoduose:
+* OnCreate()
+* OnStart()
+* OnResume()
+* OnPause()
+* OnStop()
+* OnDestroy()
 
- [Pakeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/8a58e205d20fd3556cad6e6f3032397069718879)
+## `Fragment`'ų gyvavimo ciklo registravimas
 
- ## Fragmentų gyvavimo ciklo loginimas
- Analogiškai kaip ir su Activity gyvavimo ciklo loginimu,
- pasidarome ir Fragment'ų gyvavimo ciklo loginimą.
- Apie [Android Fragment lifecycle galima pasiskaityti android.com svetainėje]
-  (http://developer.android.com/guide/components/fragments.html)
+nalogiškai `Activity` gyvavimo ciklo *loginimo* atvejui, pasidariau `Fragment` gyvavimo ciklo registravimą.
+Apie `Fragment` gyvavimo ciklus galima pasiskaityti [oficialioje "Google" dokumentacijoje](http://developer.android.com/guide/components/fragments.html)
 
-Taigi reikės susikurti `BaseFragment` pagrindinę klasę,
-kurioje sudėsime loginimo metodus:
-* onAttach
-...
+Taigi reikia susikurti `BaseFragment` pagrindinę klasę, kurioje patalpinti *loginimo* metodai:
+* onAttach()
+* onCreate()
+* onCreateView()
+* onActivityCreated()
+* onStart()
+* onResume()
+* onPause()
+* onStop()
+* onDestroyView()
+* onDestroy()
+* onDetach()
 
-[Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/c6e9e5c208491567eb4879c13d7af52035a81498)
+## Duomenų bazės, skirtos saugoti brūkšninius kodus, integravimas
 
-## Integruoti duomenų bazę Barkodų saugojimui
-Tam pasinaudosime [ORM lite](http://ormlite.com/sqlite_java_android_orm.shtml).
+Funkcionalumas įgyvendintas, pasitelkus ["ORM Lite"](http://ormlite.com/sqlite_java_android_orm.shtml).
 
-### Susikurti duomenų modelį
+### Duomenų modelio kūrimas
 
-Saugotina informacija
+## Saugotina informacija
 
 Prekė `Item`:
 
-* barcode - Barkodas
-* name - Prekės pavadinimas
-* price - Kaina
-* weight - Svoris
-* image_url - Nuotrauka
+* `barcode` - prekės brūkšninis kodas
+* `name` - prekės pavadinimas
+* `price` - prekės kaina
+* `weight` - prekės svoris (bnors fizikiškai tiksliau būtų vadint mase)
+* `image_url` - prekės nuotrauka
 
 Nuskenuota prekė `ScannedItem`:
 
-* id - nuskenavimo id
-* barcode - prekės barkodas
-* time - Laikas
-* place - Vieta
-* volunteer - Savanoris
+* `id` - unikalus konkretų skenavimą identifikuojantis numeris
+* `barcode` - prekės brūkšninis kodas
+* `time` - skenavimo laikas
+* `place` - skenavimo vieta
+* `volunteer` - savanoris (taip pat gali būti virtuvės šefas ar namų šeimininkė, priklausomai nuo aplinkybių, kuriomis naudojama aplikacija)
 
-[Pakeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/a3d19b796b8731e38383bde4b664b38107565d5e)
+### Naujai skenuojamų produktų išsaugojimas duomenų bazėje
 
-### Išsaugoti naujai nuskenuojamas prekes į DB
+Sukuriamas ir duomenų bazėn patalpinamas naujas `ScannedItem` objektas.
 
-Reikės sukurti naują `ScannedItem` objektą ir išsaugoti duomenų bazėje.
+Apie tai, kaip susikurti "ORM Lite" duomenų bazės `Helper` klasę, galima sužinoti iš šių šaltinių:
+* [ORM naudojimas kartu su "Android" operacine sistema](http://ormlite.com/javadoc/ormlite-core/doc-files/ormlite_4.html#Use-With-Android)
+* [ORM taikymo "Android'e" pavyzdžiai](http://ormlite.com/android/examples)
+* [Konkretus taikomasis pavyzdys "GitHub'e"](https://github.com/j256/ormlite-examples/blob/master/android/HelloAndroid/src/com/example/helloandroid/DatabaseHelper.java)
 
-Apie tai, kaip susikurti ORM Lite duomenų bazės `Helper` klasę
-galima paskaityti/pažiūrėti štai čia:
-* [ORM use with Android](http://ormlite.com/javadoc/ormlite-core/doc-files/ormlite_4.html#Use-With-Android)
-* [ORM Android pavyzdžiai](http://ormlite.com/android/examples/)
-* [ORM Android pavyzdys (GitHub'e)](https://github.com/j256/ormlite-examples/blob/master/android/HelloAndroid/src/com/example/helloandroid/DatabaseHelper.java)
+Pasinaudojant `Helper` klase, įrašas išsaugomas duomenų bazėje.
 
-Pasinaudojant `Helper` klase išsaugoti įrašą duomenų bazėje.
+### Irašų, išsaugotų duomenų bazėje, rodymas
 
-[Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/e8f589d7b588ebb9ab201e62cf5c1d74cddbd89a)
+## Atvaizduojamas nuskenuotų prekių sąrašas vis atnaujinamas naujais įrašais iš duomenų bazės
 
-### Rodyti įrašus išsaugotus duomenų bazėje
-Nuskenuotų prekių sąrašą vis atnaujinti įrašais duomenų bazėje
+* `MainFragment`'e `onResume` metode iškviečiama `dbHelper.getScannedItemDao().queryForAll()` funkcija.
+* Sąrašas bus atvaizduotas, sukūrus naują adapterį.
+* Sąrašo eilutės vaizduojamos sukurtame `layout`'e (kol kas - tik su `TextView`, skirtu ekranan išvesti brūkšninį kodą).
 
-* `MainFragment`e `onResume` metode iškviesti `dbHelper.getScannedItemDao().queryForAll();`
-* Sąrašo atvaizdavimui sukurti naują adapterį
-* Sąrašo eilutės vaizdavimui sukurti layout'ą (pradžiai tik su `TextView` barkodo atvaizdavimui)
+## Nuskenuotos prekės informacijos rodymas
 
-[Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/)
+* Duomenys apie maisto produktą gaunami ir atitinkamas duomenų modelis sukuriamas, naudojant REST klientą ["Retrofit"](http://square.github.io/retrofit).
+* Prekės informacijos talpinimas duomenų bazėje.
+* Prekės informacijos pavaizdavimas sąraše.
+* Prekės paveiksliukas rodomas, pasitelkus paveikslėlių siuntimo ir kešavimo (talpinimo į podėlį) biblioteką ["Picasso"](http://square.github.io/picasso).
+* Rodoma papildoma prekės informacija.
+* `Nustatymai` mygtukas įtrauktas į meniu.
+* `Skenuoti` mygtukas centruojamas apačioje.
+* Naujausi nuskenuoti įrašai rodomi viršuje.
+* Kai kur naudojama animacija.
 
-### Rodyti informaciją apie nuskenuotą prekę
-
-* Parsisiųsti prekės informaciją; Susikurti prekės informacijos duomenų modelį. Paskaitykit apie [Retrofit'ą](http://square.github.io/retrofit/). [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/9bda4b66796b0bc1d92b2551444c2445f0e18123)
-* Išsaugoti prekės informaciją į DB.
-* Atvaizduoti prekės informaciją sąraše. [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/6d6b171d3642c0aeb5e6c9ecc5a5b81b1bfa146b)
-* Parodyti prekės paveiksliuką. Pasiskaitykite apie [Picasso](http://square.github.io/picasso/). [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/d5656cab46dd27ef911a1f7239155aa10d3aa727)
-* Rodyti papildomą prekės informaciją. [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/6c28fd68decfa446201d0be54e3c77df4f065482)
-* Perkelti `Nustatymai` mygtuką į meniu. [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/0f545f4801a240e65b46f6f065fde50d617087fa)
-* Perkelti `Skenuoti` mygtuką į centrą apačioje. [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/0252eaf832b892b6a97bc48a9e30c6a7b852277c)
-* Naujausi nuskenuoti įrašai viršuje. [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/ef5c2139eb394a6f8056720b57298563c460ce88)
-* Truputis animacijos. [Pasikeitimai](https://github.com/gdgvilnius/MaistoBankas/commit/2cd23dfb75cf4f929e43c20c08b56be77fac4d91)
-
-Dabar atrodo štai taip:
+Ne pagal "Material Design" principus sukurtos vartotojo sąsajos pavyzdys:
 ![2014-03-29 14 37 12](https://cloud.githubusercontent.com/assets/1859636/2558559/b9318ae4-b74f-11e3-8705-30dfbd4ab074.png)
-

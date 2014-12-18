@@ -1,4 +1,4 @@
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -77,15 +77,3 @@ public class ShopInformationFragment extends Fragment {
         personNameView.setText(personName);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

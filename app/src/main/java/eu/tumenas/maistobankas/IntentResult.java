@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 /**
  * <p>Encapsulates the result of a barcode scan invoked through {@link IntentIntegrator}.</p>

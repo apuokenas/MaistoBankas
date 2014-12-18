@@ -1,13 +1,14 @@
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import android.os.Bundle;
 import android.util.Log;
 
-import lt.andro.maistobankas.db.DatabaseHelper;
-import lt.andro.maistobankas.db.OrmLiteBaseActivity;
+import eu.tumenas.maistobankas.db.DatabaseHelper;
+import eu.tumenas.maistobankas.db.OrmLiteBaseActivity;
 
 /**
  * @author Vilius Kraujutis viliusk@gmail.com
+ * @author M. Tumėnas mantas@tumenas.eu
  * @since 2014-02-08 12:23
  */
 public class BaseActivity extends OrmLiteBaseActivity<DatabaseHelper> {

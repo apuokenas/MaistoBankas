@@ -1,10 +1,10 @@
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import android.app.Application;
 
-import lt.andro.maistobankas.api.ItemInfoProviders;
-import lt.andro.maistobankas.api.MainService;
-import lt.andro.maistobankas.util.Utils;
+import eu.tumenas.maistobankas.api.ItemInfoProviders;
+import eu.tumenas.maistobankas.api.MainService;
+import eu.tumenas.maistobankas.util.Utils;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 

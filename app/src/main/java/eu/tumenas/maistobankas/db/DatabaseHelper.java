@@ -1,4 +1,4 @@
-package lt.andro.maistobankas.db;
+package eu.tumenas.maistobankas.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,7 +11,7 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import lt.andro.maistobankas.api.entity.Item;
+import eu.tumenas.maistobankas.api.entity.Item;
 
 /**
  * Database helper class used to manage the creation and upgrading of your database. This class also usually provides

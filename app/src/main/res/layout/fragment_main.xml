@@ -11,6 +11,7 @@
         tools:listitem="@layout/row_scanned_item" />
 
     <ImageButton
+        android:contentDescription="@string/button_send"
         android:id="@+id/buttonScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

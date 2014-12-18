@@ -1,12 +1,13 @@
-package lt.andro.maistobankas.util;
+package eu.tumenas.maistobankas.util;
 
 import android.support.v4.app.FragmentActivity;
 
-import lt.andro.maistobankas.IntentIntegrator;
-import lt.andro.maistobankas.R;
+import eu.tumenas.maistobankas.IntentIntegrator;
+import eu.tumenas.maistobankas.R;
 
 /**
  * @author Vilius Kraujutis viliusk@gmail.com
+ * @author M. Tumėnas mantas@tumenas.eu
  * @since 2014-02-08 16:30
  */
 public class ScanUtil {

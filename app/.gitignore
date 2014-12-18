@@ -1,2 +1,4 @@
 /build
+
+# May be using commercial APIs which are not about to be disclosed
 /app/src/main/java/lt/andro/maistobankas/api/ItemInfoProviders.java

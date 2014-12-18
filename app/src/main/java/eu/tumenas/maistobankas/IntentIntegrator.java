@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import java.util.Arrays;
 import java.util.Collection;

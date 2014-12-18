@@ -18,7 +18,7 @@ android {
         // is used to configure the manifest 'packageName' entry:
         applicationId "eu.tumenas.valgiounija"
         // The earliest version of the Android SDK that the app supports:
-        minSdkVersion 8     // API 8: Android 2.2 (Froyo).
+        minSdkVersion 8         // API 8: Android 2.2 (Froyo).
         // The highest version of Android with which the app has benn tested:
         targetSdkVersion 21
         versionCode 1

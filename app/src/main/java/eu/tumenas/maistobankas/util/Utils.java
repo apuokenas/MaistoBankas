@@ -1,4 +1,4 @@
-    package lt.andro.maistobankas.util;
+    package eu.tumenas.maistobankas.util;
 
     import com.google.gson.Gson;
     import com.google.gson.GsonBuilder;

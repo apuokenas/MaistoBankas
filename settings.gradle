@@ -1,1 +1,9 @@
+// Define which folder is actually a Gradle project:
 include ':app'
+
+//include ':app', ':libraries:lib1'
+//// The :app project is likely to depend on the libs,
+// and this is done by declaring the following dependencies:
+//dependencies {
+//  compile project(':libraries:lib1')
+//}

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Maisto Bankas</string>
+    <!-- Instead of hardcoded string, use @string resource. -->
+    <string name="app_name">Maisto bankas</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="button_settings">Nustatymai</string>
     <string name="button_send">Skenuoti</string>
-    <string name="barcode_scan_message">Prašome nuskenuoti prekės barkodą</string>
+    <string name="button_save">Išsaugoti</string>
+    <string name="barcode_scan_message">Nuskenuokite prekės brūkšninį kodą</string>
+    <string name="city">Miestas</string>
+    <string name="shop_address">Parduotuvės adresas</string>
+    <string name="shop_name">Parduotuvės pavadinimas</string>
+    <string name="volunteer">Savanorio vardas</string>
+    <string name="scanned_item_photo">Prekės nuotrauka</string>
 
 </resources>

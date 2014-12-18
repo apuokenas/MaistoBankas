@@ -1,4 +1,4 @@
-package lt.andro.maistobankas;
+package eu.tumenas.maistobankas;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,10 +14,10 @@ import android.widget.ListView;
 import java.sql.SQLException;
 import java.util.List;
 
-import lt.andro.maistobankas.adapter.ScannedItemsAdapter;
-import lt.andro.maistobankas.db.DatabaseHelper;
-import lt.andro.maistobankas.db.ScannedItem;
-import lt.andro.maistobankas.util.ScanUtil;
+import eu.tumenas.maistobankas.adapter.ScannedItemsAdapter;
+import eu.tumenas.maistobankas.db.DatabaseHelper;
+import eu.tumenas.maistobankas.db.ScannedItem;
+import eu.tumenas.maistobankas.util.ScanUtil;
 
 import static android.view.animation.AnimationUtils.loadAnimation;
 

@@ -1,6 +1,6 @@
-package lt.andro.maistobankas.api;
+package eu.tumenas.maistobankas.api;
 
-import lt.andro.maistobankas.api.entity.Item;
+import eu.tumenas.maistobankas.api.entity.Item;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
