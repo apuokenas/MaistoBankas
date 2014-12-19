@@ -5,7 +5,7 @@ Maisto bankas
 
 `PI;N` (angl. `TL;DR`)
 
-Maisto produktų apskaitos programėlė "Maisto bankas": subalansuota "Maisto banko" savanoriams, bet tinka ir "Maltiečių ordino" virtuvių šefams bei kebabinių gaspadinėms!
+Valgių apskaitos programėlė "Maisto bankas": subalansuota "Maisto banko" savanoriams, bet tinka ir "Maltiečių ordino" virtuvių šefams bei kebabinių gaspadinėms!
 
 Programėlė "Maisto bankas" yra licencijuota pagal ["Apache License"](http://choosealicense.com/licenses/apache-2.0) sąlygas, vadinasi, programinę įrangą galima laisvai:
 * Naudoti bet kokiu tikslu.
