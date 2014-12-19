@@ -17,7 +17,7 @@ Vienintelė ribojanti sąlyga - privaloma išsaugoti autorines teises ir atsiša
 
 Šiame dokumente galite susipažinti, kaip vyksta programėlės tobulinimas, apauginant ją nauju funkcionalumu ir koreguojant ar atsisakant senesnio, nebeatitinkančio vartotojų poreikių (arba bankrutavus kokiam nors API teikėjui).
 
-Idėjų semtasi iš kyborgų korifėjaus Viliaus Kraujučio 2014 m. vasarį "Vinted" patalpose vestų ["Android" mokymų](https://plus.google.com/u/0/events/c24nklguv5saguo9sj29mpbuo7g) mokymų, kurių metu buvo šnekučiuojamasi programuotojams skirtoje tarnyboje ["Gitter"](https://gitter.im).
+Idėjų semtasi iš kyborgų korifėjaus Viliaus Kraujučio 2014 m. vasarį "Vinted" patalpose vestų ["Android" mokymų](https://plus.google.com/u/0/events/c24nklguv5saguo9sj29mpbuo7g), kurių metu buvo šnekučiuojamasi programuotojams skirtoje tarnyboje ["Gitter"](https://gitter.im).
 
 ### Programavimo aplinkos įdiegimas
 
