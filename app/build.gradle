@@ -42,7 +42,7 @@ android {
 // and includes them in the final package.
 // The "dependencies {}" element declares the dependencies for the app module:
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //compile fileTree(dir: 'libs', include: ['*.jar'])
     // Avoid using + (automatically picking the latest available version rather than specific)
     // in version numbers, as this can lead to unpredictable and unrepeatable builds.
     compile 'com.android.support:appcompat-v7:21.0.3'     // v7 appcompat library adds support for the Action Bar user interface design pattern.
@@ -57,6 +57,5 @@ dependencies {
     compile 'com.google.guava:guava:18.0'                 // http://code.google.com/p/guava-libraries
     compile 'com.squareup.picasso:picasso:2.4.0'          // https://github.com/square/picasso
     compile 'com.google.android.gms:play-services:6.5.87' // http://developer.android.com/google/play-services/setup.html
-                                                          // Required to develop an app using the Google Play services APIs
-                                                          // (to access Google Play Store on the emulator).
+                                                          // Required to develop an app using the Google Play services APIs.
 }
